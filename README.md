@@ -27,7 +27,7 @@
 
 You can try the hosted version of the application:
 
-- https://ecs.maxbarsukov.ru/circuit-simulator/
+- https://ecs.maxbarsukov.ru/
 
 ### Pre-reqs <a name="pre-reqs"></a>
 
