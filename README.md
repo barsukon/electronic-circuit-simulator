@@ -112,7 +112,7 @@ Everyone interacting in the **ECS** project's codebases, issue trackers, chat ro
 
 ## License <a name="license"></a>
 
-The gem is available as open source under the terms of the [GNU General Public License version 2](https://opensource.org/license/gpl-2-0).
+The application is available as open source under the terms of the [GNU General Public License version 2](https://opensource.org/license/gpl-2-0).
 
 *Copyright 2023 barsukon team*
 
