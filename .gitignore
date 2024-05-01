@@ -1,0 +1,22 @@
+#GWT cache
+gwt-unitCache/
+war/ecs/
+war/ecs/circuits/
+war/e-*.html
+war/WEB-INF/
+
+# Logs
+log/*
+!log/.keep
+
+# GWT command line tools
+build.xml
+ecs.tar.gz
+
+# Editor configurations
+.vscode
+.idea
+
+# Misc
+.DS_Store
+._*
