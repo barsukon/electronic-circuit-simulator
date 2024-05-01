@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module rename-to="ecs">
+    <inherits name="com.google.gwt.user.User" />
+    <inherits name="com.google.gwt.http.HTTP" />
+    <inherits name='com.google.gwt.user.theme.clean.Clean'/>
+    <entry-point class="ru.barsukon.ecs.client.ElectronicCircuitSimulator" />
+    <stylesheet src='style.css' />
+</module>
