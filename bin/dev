@@ -74,8 +74,8 @@ webserver() {
 }
 
 start() {
-    echo "Starting web server http://127.0.0.1:8432"
-    trap "pkill -f \"python -m http.server 8432\"" EXIT
+    echo "Starting web server http://127.0.0.1:8000"
+    trap "pkill -f \"python -m http.server 8000\"" EXIT
     webserver >"$SCRIPT_DIR/log/webserver.log" 2>&1 &
     sleep 0.5
     codeserver | tee "$SCRIPT_DIR/log/codeserver.log"

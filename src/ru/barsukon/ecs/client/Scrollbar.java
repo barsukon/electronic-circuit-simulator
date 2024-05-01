@@ -75,7 +75,7 @@ public class Scrollbar
         can.setCoordinateSpaceHeight(SCROLLHEIGHT);
         pan.add(can);
         g = can.getContext2d();
-        g.setFillStyle("#ffffff");
+        g.setFillStyle("#282852");
         can.addClickHandler(this);
         can.addMouseDownHandler(this);
         can.addMouseUpHandler(this);
@@ -106,7 +106,7 @@ public class Scrollbar
     }
 
     void draw() {
-        if (enabled) g.setStrokeStyle("#000000");
+        if (enabled) g.setStrokeStyle("#93db76");
         else g.setStrokeStyle("lightgrey");
         g.setLineWidth(1.0);
         g.fillRect(0, 0, CirSim.VERTICALPANELWIDTH, SCROLLHEIGHT);
@@ -131,12 +131,12 @@ public class Scrollbar
             ((CirSim.VERTICALPANELWIDTH - 2 * (HMARGIN + SCROLLHEIGHT + BARMARGIN)) * ((double) (val - min))) / (max - min);
         if (enabled) {
             if (attachedElm != null && attachedElm.needsHighlight()) g.setStrokeStyle(CircuitElm.selectColor.getHexValue());
-            else g.setStrokeStyle("red");
+            else g.setStrokeStyle("#93db76");
             g.beginPath();
             g.moveTo(HMARGIN + SCROLLHEIGHT + BARMARGIN, SCROLLHEIGHT / 2);
             g.lineTo(p, SCROLLHEIGHT / 2);
             g.stroke();
-            g.setStrokeStyle("#000000");
+            g.setStrokeStyle("#161645");
             //			g.beginPath();
             //			g.moveTo(p, 0);
             //			g.lineTo(p, SCROLLHEIGHT);

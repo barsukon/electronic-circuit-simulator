@@ -20,6 +20,7 @@ public class ScopePopupMenu {
 
     ScopePopupMenu() {
         m = new MenuBar(true);
+        m.getElement().addClassName("menuBar");
         m.addItem(removeScopeItem = new CheckboxAlignedMenuItem(Locale.LS("Remove Scope"), new MyCommand("scopepop", "remove")));
         m.addItem(dockItem = new CheckboxAlignedMenuItem(Locale.LS("Dock Scope"), new MyCommand("scopepop", "dock")));
         m.addItem(undockItem = new CheckboxAlignedMenuItem(Locale.LS("Undock Scope"), new MyCommand("scopepop", "undock")));

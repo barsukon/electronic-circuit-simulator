@@ -430,6 +430,7 @@ public class CirSim
         layoutPanel = new DockLayoutPanel(Unit.PX);
 
         fileMenuBar = new MenuBar(true);
+        fileMenuBar.getElement().addClassName("menuBar");
         if (isElectron()) fileMenuBar.addItem(
             menuItemWithShortcut("window", "New Window...", Locale.LS(ctrlMetaKey + "N"), new MyCommand("file", "newwindow"))
         );
@@ -480,6 +481,7 @@ public class CirSim
         if (VERTICALPANELWIDTH < 128) VERTICALPANELWIDTH = 128;
 
         menuBar = new MenuBar();
+        menuBar.getElement().addClassName("menuBar");
         menuBar.addItem(Locale.LS("File"), fileMenuBar);
         verticalPanel = new VerticalPanel();
 
@@ -500,8 +502,10 @@ public class CirSim
 
         // make buttons side by side if there's room
         buttonPanel = (VERTICALPANELWIDTH == 166) ? new HorizontalPanel() : new VerticalPanel();
+        buttonPanel.getElement().addClassName("buttonPanel");
 
         m = new MenuBar(true);
+        m.getElement().addClassName("menuBar");
         m.addItem(undoItem = menuItemWithShortcut("ccw", "Undo", Locale.LS(ctrlMetaKey + "Z"), new MyCommand("edit", "undo")));
         m.addItem(redoItem = menuItemWithShortcut("cw", "Redo", Locale.LS(ctrlMetaKey + "Y"), new MyCommand("edit", "redo")));
         m.addSeparator();
@@ -530,11 +534,14 @@ public class CirSim
         menuBar.addItem(Locale.LS("Edit"), m);
 
         MenuBar drawMenuBar = new MenuBar(true);
+        drawMenuBar.getElement().addClassName("menuBar");
+
         drawMenuBar.setAutoOpen(true);
 
         menuBar.addItem(Locale.LS("Draw"), drawMenuBar);
 
         m = new MenuBar(true);
+        m.getElement().addClassName("menuBar");
         m.addItem(stackAllItem = iconMenuItem("lines", "Stack All", new MyCommand("scopes", "stackAll")));
         m.addItem(unstackAllItem = iconMenuItem("columns", "Unstack All", new MyCommand("scopes", "unstackAll")));
         m.addItem(combineAllItem = iconMenuItem("object-group", "Combine All", new MyCommand("scopes", "combineAll")));
@@ -542,6 +549,7 @@ public class CirSim
         menuBar.addItem(Locale.LS("Scopes"), m);
 
         optionsMenuBar = m = new MenuBar(true);
+        optionsMenuBar.getElement().addClassName("menuBar");
         menuBar.addItem(Locale.LS("Options"), optionsMenuBar);
         m.addItem(dotsCheckItem = new CheckboxMenuItem(Locale.LS("Show Current")));
         dotsCheckItem.setState(true);
@@ -629,9 +637,9 @@ public class CirSim
                     setOptionInStorage("conventionalCurrent", conventionCheckItem.getState());
                     String cc = CircuitElm.currentColor.getHexValue();
                     // change the current color if it hasn't changed from the default
-                    if (cc.equals("#ffff00") || cc.equals("#00ffff")) CircuitElm.currentColor = conventionCheckItem.getState()
+                    if (cc.equals("#cff576") || cc.equals("#5d6c99")) CircuitElm.currentColor = conventionCheckItem.getState()
                         ? Color.yellow
-                        : Color.cyan;
+                        : new Color(93, 108, 153);
                 }
             }
         );
@@ -656,6 +664,8 @@ public class CirSim
         if (isElectron()) m.addItem(new CheckboxAlignedMenuItem(Locale.LS("Toggle Dev Tools"), new MyCommand("options", "devtools")));
 
         mainMenuBar = new MenuBar(true);
+        mainMenuBar.getElement().addClassName("menuBar");
+
         mainMenuBar.setAutoOpen(true);
         composeMainMenu(mainMenuBar, 0);
         composeMainMenu(drawMenuBar, 1);
@@ -695,6 +705,8 @@ public class CirSim
         cvcontext = cv.getContext2d();
         setCanvasSize();
         layoutPanel.add(cv);
+        layoutPanel.getElement().addClassName("layoutPanel");
+
         verticalPanel.add(buttonPanel);
         buttonPanel.add(resetButton = new Button(Locale.LS("Reset")));
         resetButton.addClickHandler(
@@ -770,6 +782,7 @@ public class CirSim
         // cv.setForeground(Color.lightGray);
 
         elmMenuBar = new MenuBar(true);
+        elmMenuBar.getElement().addClassName("menuBar");
         elmMenuBar.setAutoOpen(true);
         selectScopeMenuBar = new MenuBar(true) {
             @Override
@@ -795,6 +808,7 @@ public class CirSim
                 super.onBrowserEvent(event);
             }
         };
+        selectScopeMenuBar.getElement().addClassName("menuBar");
 
         elmMenuBar.addItem(elmEditMenuItem = new MenuItem(Locale.LS("Edit..."), new MyCommand("elm", "edit")));
         elmMenuBar.addItem(elmScopeMenuItem = new MenuItem(Locale.LS("View in New Scope"), new MyCommand("elm", "viewInScope")));
@@ -854,6 +868,8 @@ public class CirSim
             },
             ClickEvent.getType()
         );
+        mainMenuBar.getElement().addClassName("menuBar");
+
         Event.addNativePreviewHandler(this);
         cv.addMouseWheelHandler(this);
 
@@ -888,10 +904,10 @@ public class CirSim
         if (neutralColor != null) CircuitElm.neutralColor = new Color(URL.decodeQueryString(neutralColor));
 
         if (selectColor != null) CircuitElm.selectColor = new Color(URL.decodeQueryString(selectColor));
-        else CircuitElm.selectColor = Color.cyan;
+        else CircuitElm.selectColor = new Color(93, 108, 153);
 
         if (currentColor != null) CircuitElm.currentColor = new Color(URL.decodeQueryString(currentColor));
-        else CircuitElm.currentColor = conventionCheckItem.getState() ? Color.yellow : Color.cyan;
+        else CircuitElm.currentColor = conventionCheckItem.getState() ? Color.yellow : new Color(93, 108, 153);
 
         CircuitElm.setColorScale();
     }
@@ -982,16 +998,16 @@ public class CirSim
 	var lastTap;
 	var tmout;
 	var lastScale;
-	
+
 	cv.addEventListener("touchstart", function (e) {
         	mousePos = getTouchPos(cv, e);
   		var touch = e.touches[0];
-  		
+
   		var etype = "mousedown";
   		lastScale = 1;
   		clearTimeout(tmout);
   		e.preventDefault();
-  		
+
   		if (e.timeStamp-lastTap < 300) {
      		    etype = "dblclick";
   		} else {
@@ -1000,7 +1016,7 @@ public class CirSim
   		    }, 500);
   		}
   		lastTap = e.timeStamp;
-  		
+
   		var touch1 = e.touches[0];
   		var touch2 = e.touches[e.touches.length-1];
   		lastScale = Math.hypot(touch1.clientX-touch2.clientX, touch1.clientY-touch2.clientY);
@@ -1043,17 +1059,19 @@ public class CirSim
     			y: touchEvent.touches[0].clientY - rect.top
   		};
 	}
-	
+
     }-*/;
 
     boolean shown = false;
 
     public void composeMainMenu(MenuBar mainMenuBar, int num) {
+        mainMenuBar.getElement().addClassName("menuBar");
         mainMenuBar.addItem(getClassCheckItem(Locale.LS("Add Wire"), "WireElm"));
         mainMenuBar.addItem(getClassCheckItem(Locale.LS("Add Resistor"), "ResistorElm"));
         mainMenuBar.addItem(getClassCheckItem(Locale.LS("Add Diode"), "DiodeElm"));
 
         MenuBar passMenuBar = new MenuBar(true);
+        passMenuBar.getElement().addClassName("menuBar");
         passMenuBar.addItem(getClassCheckItem(Locale.LS("Add Capacitor"), "CapacitorElm"));
         passMenuBar.addItem(getClassCheckItem(Locale.LS("Add Inductor"), "InductorElm"));
         passMenuBar.addItem(getClassCheckItem(Locale.LS("Add Potentiometer"), "PotElm"));
@@ -1067,6 +1085,7 @@ public class CirSim
         );
 
         MenuBar inputMenuBar = new MenuBar(true);
+        inputMenuBar.getElement().addClassName("menuBar");
         inputMenuBar.addItem(getClassCheckItem(Locale.LS("Add Ground"), "GroundElm"));
         inputMenuBar.addItem(getClassCheckItem(Locale.LS("Add Variable Voltage"), "VarRailElm"));
         inputMenuBar.addItem(getClassCheckItem(Locale.LS("Add Voltage Source (2-terminal)"), "DCVoltageElm"));
@@ -1081,6 +1100,7 @@ public class CirSim
         );
 
         MenuBar outputMenuBar = new MenuBar(true);
+        outputMenuBar.getElement().addClassName("menuBar");
         outputMenuBar.addItem(getClassCheckItem(Locale.LS("Add Analog Output"), "OutputElm"));
         outputMenuBar.addItem(getClassCheckItem(Locale.LS("Add Lamp"), "LampElm"));
         outputMenuBar.addItem(getClassCheckItem(Locale.LS("Add Voltmeter/Scope Probe"), "ProbeElm"));
@@ -1093,6 +1113,7 @@ public class CirSim
         );
 
         MenuBar infoMenuBar = new MenuBar(true);
+        infoMenuBar.getElement().addClassName("menuBar");
         infoMenuBar.addItem(getClassCheckItem(Locale.LS("Add Text"), "TextElm"));
         infoMenuBar.addItem(getClassCheckItem(Locale.LS("Add Box"), "BoxElm"));
         infoMenuBar.addItem(getClassCheckItem(Locale.LS("Add Line"), "LineElm"));
@@ -1103,6 +1124,8 @@ public class CirSim
         );
 
         MenuBar otherMenuBar = new MenuBar(true);
+        otherMenuBar.getElement().addClassName("menuBar");
+
         CheckboxMenuItem mi;
         otherMenuBar.addItem(mi = getClassCheckItem(Locale.LS("Drag All"), "DragAll"));
         mi.setShortcut(Locale.LS("(Alt-drag)"));
@@ -1301,6 +1324,22 @@ public class CirSim
         perfmon.startContext("updateCircuit()");
 
         checkCanvasSize();
+        int p = 10;
+        Context2d context = cv.getContext2d();
+        context.beginPath();
+        console(canvasWidth + " " + canvasHeight);
+        for (int x = 0; x <= canvasWidth; x += 40) {
+            context.moveTo(0.5 + x + p, p);
+            context.lineTo(0.5 + x + p, canvasHeight + p);
+        }
+
+        for (int x = 0; x <= canvasHeight; x += 40) {
+            context.moveTo(p, 0.5 + x + p);
+            context.lineTo(canvasWidth + p, 0.5 + x + p);
+        }
+
+        context.setStrokeStyle("#fff");
+        context.stroke();
 
         // Analyze circuit
         boolean didAnalyze = analyzeFlag;
@@ -1332,12 +1371,12 @@ public class CirSim
             CircuitElm.whiteColor = Color.black;
             CircuitElm.lightGrayColor = Color.black;
             g.setColor(Color.white);
-            cv.getElement().getStyle().setBackgroundColor("#fff");
+            cv.getElement().getStyle().setBackgroundColor("#a5c0d9");
         } else {
             CircuitElm.whiteColor = Color.white;
             CircuitElm.lightGrayColor = Color.lightGray;
             g.setColor(Color.black);
-            cv.getElement().getStyle().setBackgroundColor("#000");
+            cv.getElement().getStyle().setBackgroundColor("#1a1a3b");
         }
 
         // Clear the frame
@@ -1525,7 +1564,7 @@ public class CirSim
             if (hideInfoBox) h = 0;
         }
         if (stopMessage != null && circuitArea.height > canvasHeight - 30) h = 30;
-        g.setColor(printableCheckItem.getState() ? "#eee" : "#111");
+        g.setColor(printableCheckItem.getState() ? "#bcc6e0" : "#202045");
         g.fillRect(leftX, circuitArea.height - h, circuitArea.width, canvasHeight - circuitArea.height + h);
         g.setFont(CircuitElm.unitsFont);
         int ct = scopeCount;
@@ -3421,6 +3460,7 @@ public class CirSim
         MenuBar stack[] = new MenuBar[6];
         int stackptr = 0;
         currentMenuBar = new MenuBar(true);
+        currentMenuBar.getElement().addClassName("menuBar");
         currentMenuBar.setAutoOpen(true);
         menuBar.addItem(Locale.LS("Circuits"), currentMenuBar);
         stack[stackptr++] = currentMenuBar;
@@ -3436,6 +3476,7 @@ public class CirSim
             else if (line.charAt(0) == '+') {
                 // MenuBar n = new Menu(line.substring(1));
                 MenuBar n = new MenuBar(true);
+                n.getElement().addClassName("menuBar");
                 n.setAutoOpen(true);
                 currentMenuBar.addItem(Locale.LS(line.substring(1)), n);
                 currentMenuBar = stack[stackptr++] = n;
@@ -5211,7 +5252,7 @@ public class CirSim
 
     native boolean weAreInUS(boolean orCanada) /*-{
     try {
-	l = navigator.languages ? navigator.languages[0] : (navigator.language || navigator.userLanguage) ;  
+	l = navigator.languages ? navigator.languages[0] : (navigator.language || navigator.userLanguage) ;
     	if (l.length > 2) {
     		l = l.slice(-2).toUpperCase();
     		return (l == "US" || (l=="CA" && orCanada));
@@ -5441,7 +5482,7 @@ public class CirSim
 	        getTimeStep: $entry(function() { return that.@ru.barsukon.ecs.client.CirSim::timeStep; } ),
 	        setTimeStep: $entry(function(ts) { that.@ru.barsukon.ecs.client.CirSim::timeStep = ts; } ),
 	        getMaxTimeStep: $entry(function() { return that.@ru.barsukon.ecs.client.CirSim::maxTimeStep; } ),
-	        setMaxTimeStep: $entry(function(ts) { that.@ru.barsukon.ecs.client.CirSim::maxTimeStep = 
+	        setMaxTimeStep: $entry(function(ts) { that.@ru.barsukon.ecs.client.CirSim::maxTimeStep =
                                                       that.@ru.barsukon.ecs.client.CirSim::timeStep = ts; } ),
 	        isRunning: $entry(function() { return that.@ru.barsukon.ecs.client.CirSim::simIsRunning()(); } ),
 	        getNodeVoltage: $entry(function(n) { return that.@ru.barsukon.ecs.client.CirSim::getLabeledNodeVoltage(Ljava/lang/String;)(n); } ),

@@ -9,7 +9,7 @@
 	.triggerLabel {
 		display: initial;
 		border-radius: 10px 0px 0px 10px;
-		background: white;
+		background: #1a1a3b;
 		width: 20px;
 		height: 50px;
 		position: absolute;
@@ -66,7 +66,7 @@
 	/* selects the side panel */
 	.trigger+.triggerLabel+div {
 		width: 0 !important;
-		background: white;
+		background: #1a1a3b;
 		z-index: 1;
 		transition: width 1s;
 	}
@@ -81,7 +81,7 @@
 		width: 100%;
 		text-align: center;
 		top: 30px;
-		background: white;
+		background: #1a1a3b;
 		z-index: 2;
 	}
 	.gwt-MenuBar-horizontal * {
@@ -113,11 +113,39 @@
 	.menuPopupTopLeft, .menuPopupTopCenter, .menuPopupTopRight,
 		.menuPopupMiddleLeft, .menuPopupMiddleRight, .menuPopupMiddleCenter,
 		.menuPopupBottomLeft, .menuPopupBottomCenter, .menuPopupBottomRight {
-		background: white !important;
+		background: #1a1a3b !important;
 	}
 
 	/* selects the div containing the canvas */
 	.trigger+.triggerLabel+div+div {
 		width: 100% !important;
 	}
+}
+
+.verticalPanel {
+    background-color: #1a1a3b;
+    color: aliceblue;
+}
+
+.menuBar {
+    background-color: #1a1a3b !important;
+    color: aliceblue !important;
+}
+
+.buttonPanel {
+    background-color: #1a1a3b;
+    color: aliceblue;
+}
+
+.triggerLabel:before {
+    color: aliceblue;
+}
+.triggerLabel:checked {
+    color: aliceblue;
+}
+.toptriggerlabel:before {
+    color: aliceblue;
+}
+.toptriggerlabel:checked {
+    color: aliceblue;
 }

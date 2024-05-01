@@ -114,7 +114,7 @@ class ScopePlot {
         return null;
     }
 
-    static final String colors[] = { "#FF0000", "#FF8000", "#FF00FF", "#7F00FF", "#0000FF", "#0080FF", "#FFFF00", "#00FFFF" };
+    static final String colors[] = { "#ad3241", "#FF8000", "#FF00FF", "#7F00FF", "#0000FF", "#0080FF", "#cff576", "#5d6c99" };
 
     void assignColor(int count) {
         if (count > 0) {
@@ -126,10 +126,10 @@ class ScopePlot {
                 color = CircuitElm.positiveColor.getHexValue();
                 break;
             case Scope.UNITS_A:
-                color = (CirSim.theSim.printableCheckItem.getState()) ? "#A0A000" : "#FFFF00";
+                color = (CirSim.theSim.printableCheckItem.getState()) ? "#cbff52" : "#cff576";
                 break;
             default:
-                color = (CirSim.theSim.printableCheckItem.getState()) ? "#000000" : "#FFFFFF";
+                color = (CirSim.theSim.printableCheckItem.getState()) ? "#1a1a3b" : "#d7e0f7";
                 break;
         }
     }
@@ -581,9 +581,9 @@ class Scope {
             draw_oy = y2;
         }
         if (sim.printableCheckItem.getState()) {
-            imageContext.setStrokeStyle("#000000");
+            imageContext.setStrokeStyle("#1a1a3b");
         } else {
-            imageContext.setStrokeStyle("#ffffff");
+            imageContext.setStrokeStyle("#d7e0f7");
         }
         imageContext.beginPath();
         imageContext.moveTo(draw_ox, draw_oy);
@@ -596,9 +596,9 @@ class Scope {
     void clear2dView() {
         if (imageContext != null) {
             if (sim.printableCheckItem.getState()) {
-                imageContext.setFillStyle("#eee");
+                imageContext.setFillStyle("#a5c0d9");
             } else {
-                imageContext.setFillStyle("#111");
+                imageContext.setFillStyle("#1a1a3b");
             }
             imageContext.fillRect(0, 0, rect.width - 1, rect.height - 1);
         }
@@ -658,7 +658,7 @@ class Scope {
                 g.setColor("#880000");
                 g.drawLine(x, 0, x, rect.height);
             }
-            g.setColor("#FF0000");
+            g.setColor("#ad3241");
             g.drawString(s, x + 2, rect.height);
         }
     }
@@ -685,7 +685,7 @@ class Scope {
             if (m > maxM) maxM = m;
         }
         int prevX = 0;
-        g.setColor("#FF0000");
+        g.setColor("#ad3241");
         if (!logSpectrum) {
             int prevHeight = 0;
             int y = (rect.height - 1) - 12;
@@ -753,9 +753,9 @@ class Scope {
             alphaCounter = 0;
             imageContext.setGlobalAlpha(0.01);
             if (sim.printableCheckItem.getState()) {
-                imageContext.setFillStyle("#ffffff");
+                imageContext.setFillStyle("#a5c0d9");
             } else {
-                imageContext.setFillStyle("#000000");
+                imageContext.setFillStyle("#1a1a3b");
             }
             imageContext.fillRect(0, 0, rect.width, rect.height);
             imageContext.setGlobalAlpha(1.0);
@@ -772,7 +772,7 @@ class Scope {
         g.drawLine(rect.width / 2, 0, rect.width / 2, rect.height - 1);
         if (isManualScale()) {
             double gridPx = calc2dGridPx(rect.width, rect.height);
-            g.setColor("#404040");
+            g.setColor("#517e8f");
             for (int i = -manDivisions; i <= manDivisions; i++) {
                 if (i != 0) g.drawLine((int) (gridPx * i) + rect.width / 2, 0, (int) (gridPx * i) + rect.width / 2, rect.height);
                 g.drawLine(0, (int) (gridPx * i) + rect.height / 2, rect.width, (int) (gridPx * i) + rect.height / 2);
@@ -1007,7 +1007,7 @@ class Scope {
         int x = 0;
         final int maxy = (rect.height - 1) / 2;
 
-        String color = (somethingSelected) ? "#A0A0A0" : plot.color;
+        String color = (somethingSelected) ? "#9db8c2" : plot.color;
         if (allSelected || (sim.scopeSelected == -1 && plot.elm.isMouseElm())) color = CircuitElm.selectColor.getHexValue();
         else if (selected) color = plot.color;
         int ipa = plot.startIndex(rect.width);
@@ -1056,12 +1056,12 @@ class Scope {
             gridStepY = plot.manScale;
         }
 
-        String minorDiv = "#404040";
-        String majorDiv = "#A0A0A0";
+        String minorDiv = "#517e8f";
+        String majorDiv = "#9db8c2";
         if (sim.printableCheckItem.getState()) {
-            minorDiv = "#D0D0D0";
-            majorDiv = "#808080";
-            curColor = "#A0A000";
+            minorDiv = "#c5d9e0";
+            majorDiv = "#aec4d1";
+            curColor = "#cbff52";
         }
         if (allSelected) majorDiv = CircuitElm.selectColor.getHexValue();
 

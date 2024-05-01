@@ -85,7 +85,7 @@ class EditOptions implements Editable {
             CircuitElm.neutralColor = setColor("neutralColor", ei, Color.gray);
             CircuitElm.setColorScale();
         }
-        if (n == 6) CircuitElm.selectColor = setColor("selectColor", ei, Color.cyan);
+        if (n == 6) CircuitElm.selectColor = setColor("selectColor", ei, new Color(93, 108, 153));
         if (n == 7) CircuitElm.currentColor = setColor("currentColor", ei, Color.yellow);
         if (n == 8) CircuitElm.setDecimalDigits((int) ei.value, true, true);
         if (n == 9) CircuitElm.setDecimalDigits((int) ei.value, false, true);

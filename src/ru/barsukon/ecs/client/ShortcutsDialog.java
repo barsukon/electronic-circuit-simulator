@@ -112,17 +112,17 @@ public class ShortcutsDialog extends Dialog {
 
             // check if character if out of range
             if (c > boxForShortcut.length) {
-                box.getElement().getStyle().setColor("red");
+                box.getElement().getStyle().setColor("#ad3241");
                 result = true;
                 continue;
             }
 
             // check for duplicates and mark them
             if (boxForShortcut[c] != null) {
-                box.getElement().getStyle().setColor("red");
-                boxForShortcut[c].getElement().getStyle().setColor("red");
+                box.getElement().getStyle().setColor("#ad3241");
+                boxForShortcut[c].getElement().getStyle().setColor("#ad3241");
                 result = true;
-            } else box.getElement().getStyle().setColor("black");
+            } else box.getElement().getStyle().setColor("#1a1a3b");
 
             boxForShortcut[c] = box;
         }

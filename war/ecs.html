@@ -4,14 +4,14 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    
+
     <meta name='gwt:property' content='locale=ru_RU'>
     <title>Electronic Circuit Simulator</title>
     <meta name="description" content="Проект по курсу 'Физика. Электромагнетизм'">
 
     <meta name="keywords" content="circuit, physics, electronics, electronic circuit simulator">
     <meta name="robots" content="index,follow,noodp">
-    <meta name="googlebot" content="index,follow">  
+    <meta name="googlebot" content="index,follow">
     <meta name="google" content="nositelinkssearchbox">
     <meta name="google" content="notranslate">
     <meta name="generator" content="Проект по курсу 'Физика. Электромагнетизм'">
@@ -20,13 +20,14 @@
 
     <link rel="icon" type="image/x-icon" href="./favicon.ico">
 
-    <meta name="theme-color" content="#899499">
-    <meta name="msapplication-navbutton-color" content="#899499">
+    <meta name="theme-color" content="#1a1a3b">
+    <meta name="msapplication-navbutton-color" content="#1a1a3b">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <style>
+
 .disabled {
-	color: lightgray
+	color: #62629b;
 }
 .topSpace {
 	margin-top: 12px;
@@ -42,8 +43,14 @@
    cursor: row-resize;
 }
 
+.menuPopupTopLeft, .menuPopupTopCenter, .menuPopupTopRight,
+		.menuPopupMiddleLeft, .menuPopupMiddleRight, .menuPopupMiddleCenter,
+		.menuPopupBottomLeft, .menuPopupBottomCenter, .menuPopupBottomRight {
+    background: #1a1a3a !important;
+}
+
 .gwt-MenuItem-disabled {
-	color: lightgray;
+	color: #62629b;
 }
 .offScreen {
 	position: absolute;
@@ -51,31 +58,48 @@
 	overflow: hidden;
 }
 .gwt-Frame{
-	scrolling="no";
+	scrolling: "no";
 	border: 0px !important;
 }
 
 .gwt-MenuItem {
 	font-size: 12px !important;
+    background: #1a1a3b !important;
+	color: aliceblue !important;
+}
+.gwt-MenuItem:hover {
+    background: #2d2d63 !important;
+	color: aliceblue !important;
+}
+.gwt-MenuItem:active {
+    background: #2d2d63 !important;
+	color: aliceblue !important;
+}
+
+.subMenuIcon {
+    background: #1a1a3b !important;
+	color: aliceblue !important;
 }
 
 .gwt-MenuBar-horizontal {
 	font-size: 12px !important;
-	}
-	
+    background: #1a1a3b !important;
+	color: aliceblue !important;
+}
+
 .gwt-Label-selected {
 	font-size: 1.3em;
 	font-weight: 700;
-	border-top: 1px solid black;
-	border-bottom: 1px solid black;
+	border-top: 1px solid #303030;
+	border-bottom: 1px solid #303030;
 }
 .gwt-Label-1off {
-	color: DarkGray;
+	color: #88a6bf;
 }
 
 .gwt-Label-2off {
 	font-size:0.8em;
-	color: LightGray;
+	color: #88a6bf;
 }
 
 .gwt-Label-current {
@@ -91,13 +115,13 @@
 }
 
 .gwt-Button.chbut-black {
-	background: black;
-	color: white;
+	background: #1a1a3b;
+	color: aliceblue;
 }
 
 .gwt-Button.chbut-white {
-	background: white;
-	color: black;
+	background: aliceblue;
+	color: #1a1a3b;
 }
 
 .gwt-TextBox.scalebox {
@@ -118,8 +142,8 @@
 	padding-bottom:1px;
 	padding-top:0;
 	margin-bottom:1px;
-	background:gray;
-	color:white;
+	background: #1a1a3b;
+	color:#a5c0d9;
 }
 
 
@@ -129,13 +153,13 @@
     margin-left:5px;
     padding: 5px 7px;
     text-decoration: none;
-    color: #ffffff;
+    color: aliceblue;
     cursor: pointer;
     cursor: hand;
     font-size: small;
-    background-color: #ff0000; 
-    border: 1px solid #bbb;
-    border-bottom: 1px solid #a0a0a0;
+    background-color: #ad3241;
+    border: 1px solid #242c33;
+    border-bottom: 2px solid #131b22;
     border-radius: 3px;
     -moz-border-radius: 3px;
 }
@@ -149,9 +173,10 @@
     cursor: pointer;
     cursor: hand;
     font-size: small;
-    background-color: #e7e7e7; 
-    border: 1px solid #bbb;
-    border-bottom: 1px solid #a0a0a0;
+    background-color: #1a1a3b;
+    color: aliceblue;
+    border: 1px solid #333364;
+    border-bottom: 1px solid #242450;
     border-radius: 3px;
     -moz-border-radius: 3px;
 }
@@ -167,16 +192,16 @@
 </head>
   <body>
   <script language="javascript" src="lz-string.min.js"></script>
-   
+
     <!-- This script tag is what actually loads the GWT module.  The -->
     <!-- 'nocache.js' file (also called a "selection script") is     -->
     <!-- produced by the GWT compiler in the module output directory -->
     <!-- or generated automatically in development mode.             -->
     <script language="javascript" src="ecs/ecs.nocache.js"></script>
-    
+
     <!-- Include a history iframe to enable full GWT history support -->
     <!-- (the id must be exactly as shown)                           -->
     <iframe src="javascript:''" id="__gwt_historyFrame" style="width:0;height:0;border:0"></iframe>
-    
+
   </body>
  </html>
