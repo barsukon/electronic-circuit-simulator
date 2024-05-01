@@ -1,0 +1,70 @@
+### setuplist.txt first line must be a comment
++Basics
+ohms.txt Ohm's Law
+resistors.txt Resistors
+cap.txt Capacitor
+induct.txt Inductor
+>lrc.txt LRC Circuit
+voltdivide.txt Voltage Divider
+pot.txt Potentiometer
+potdivide.txt Potentiometer Divider
+thevenin.txt Thevenin's Theorem
+norton.txt Norton's Theorem
+-
++A/C Circuits
+capac.txt Capacitor
+inductac.txt Inductor
+capmultcaps.txt Caps of Various Capacitances
+capmultfreq.txt Caps w/ Various Frequencies
+indmultind.txt Inductors of Various Inductances
+indmultfreq.txt Inductors w/ Various Frequencies
+res-series.txt Series Resonance
+res-par.txt Parallel Resonance
+-
++Filters
+filt-hipass.txt High-Pass Filter (RC)
+filt-lopass.txt Low-Pass Filter (RC)
+filt-hipass-l.txt High-Pass Filter (RL)
+filt-lopass-l.txt Low-Pass Filter (RL)
+bandpass.txt Band-pass Filter
+notch.txt Notch Filter
+twint.txt Twin-T Filter
+crossover.txt Crossover
+butter10lo.txt Butterworth Low-Pass (10 pole)
+butter10hi.txt Butterworth High-Pass (10 pole)
+butterbandstop.txt Butterworth Band-Stop
+besselbutter.txt Bessel vs Butterworth
+ringing.txt Band-pass with Ringing
+-
++Other Passive Circuits
++Series/Parallel
+indseries.txt Inductors in Series
+indpar.txt Inductors in Parallel
+capseries.txt Caps in Series
+cappar.txt Caps in Parallel
+-
+3way.txt 3-Way Light Switches
+wheatstone.txt Wheatstone Bridge
+lrc-critical.txt Critically Damped LRC
+currentsrcelm.txt Current Source
+inductkick.txt Inductive Kickback
+inductkick-snub.txt Blocking Inductive Kickback
+grid.txt Resistor Grid
+ladder.txt LC Ladder
+phaseseq.txt Phase-Sequence Network
+lissa.txt Lissajous Figures
+-
++Diodes
+diodevar.txt Diode
+diodecurve.txt Diode I/V Curve
+rectify.txt Half-Wave Rectifier
+fullrect.txt Full-Wave Rectifier
+fullrectf.txt Full-Wave Rectifier w/ Filter
+diodelimit.txt Diode Limiter
+inductkick-block.txt Blocking Inductive Kickback
+spikegen.txt Spike Generator
+voltdouble.txt Voltage Doubler
+voltdouble2.txt Voltage Doubler 2
+-
+lightbulb.txt Light Bulb
+blank.txt Blank Circuit
