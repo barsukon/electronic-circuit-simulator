@@ -1,0 +1,26 @@
+<meta charset="UTF-8">
+<style>
+body {
+  font-family: Arial Unicode MS, Arial, sans-serif;
+  font-size: small;
+}
+</style>
+<div>
+  <p><strong>Проект по курсу "Физика. Электромагнетизм".</strong></p>
+  <p>Electronic Circuit Simulator, версия <span class="ver"></span>.</p>
+  <p>Авторы:
+    <a href="https://github.com/belovlaska" target="_blank">Конкин Вадим</a>,
+    <a href="https://github.com/m0r7um" target="_blank">Вальц Мартин</a>,
+    <a href="https://github.com/maxbarsukov" target="_blank">Барсуков Максим</a>,
+    <a href="https://github.com/Neonik-dev" target="_blank">Лисейчиков Глеб</a>,
+    <a href="https://github.com/nkolomiika" target="_blank">Коломиец Никита</a>.
+  </p>
+  <p>Исходный код на GitHub: <a href="https://github.com/barsukon/electronic-circuit-simulator" target="_blank">https://github.com/barsukon/electronic-circuit-simulator</a></p>
+  <p style="font-size:9px">Эта программа является свободным программным обеспечением: вы можете распространять ее
+    и/или изменять в соответствии с условиями GNU General Public License, опубликованной Free Software Foundation, либо версии 2 Лицензии, либо (по вашему выбору) любой более поздней версии.</p>
+  <p style="font-size:9px">Подробности о лицензировании: <a href="http://www.gnu.org/licenses/" target="_blank">http://www.gnu.org/licenses/</a>.</p>
+</div>
+<script>
+  const verStr = sessionStorage.getItem('versionString');
+  document.querySelector('.ver').textContent = (verStr == null) ? "... " : verStr;
+</script>
